@@ -18,6 +18,7 @@ if SERVER then
 		end
 	end)
 else
+
 	ENT:AddHook("ShouldDraw", "players", function(self)
 		if LocalPlayer():GetNetVar("tardis_i")==self then
 			return true

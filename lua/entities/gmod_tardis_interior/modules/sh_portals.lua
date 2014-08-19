@@ -14,6 +14,9 @@ if SERVER then
 		self.portals[1]:SetParent(self.exterior)
 		self.portals[1]:Spawn()
 		self.portals[1]:Activate()
+		self.portals[1].StartTouch = function(portal,ent)
+			self.exterior:PlayerEnter(ent)
+		end
 		
 		self.portals[2]:SetDisappearDist(1000)
 		self.portals[2]:SetWidth(40)
@@ -24,6 +27,7 @@ if SERVER then
 		self.portals[2]:SetParent(self)
 		self.portals[2]:Spawn()
 		self.portals[2]:Activate()
+
 	end)
 else
 	ENT:AddHook("ShouldDraw", "portals", function(self)

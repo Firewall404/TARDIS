@@ -12,6 +12,7 @@ function ENT:SpawnFunction( ply, tr, ClassName )
 	ent.owner=ply
 	ent:Spawn()
 	ent:Activate()
+	
 	return ent
 end
  
@@ -42,3 +43,5 @@ function ENT:Think()
 	
 	self:CallHook("Think")
 end
+
+

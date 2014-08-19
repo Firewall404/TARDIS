@@ -1,5 +1,6 @@
 // Handles players
 
+
 if SERVER then
 	function ENT:PlayerEnter(ply)
 		if self.interior and IsValid(self.interior) then
@@ -15,8 +16,12 @@ if SERVER then
 			ply:SetPos(self.interior:LocalToWorld(Vector(0,-330,90))+Vector(0,pos.y,pos.z))
 			local ang=(ply:EyeAngles()-self:GetAngles())+self.interior:GetAngles()+Angle(0,-90,0)
 			local fwd=(ply:GetVelocity():Angle()+(self.interior:GetAngles()-self:GetAngles())+Angle(0,-90,0)):Forward()
+			if ply:IsPlayer() then
 			ply:SetEyeAngles(Angle(ang.p,ang.y,0))
+			end
+			ply:ForcePlayerDrop()
 			ply:SetLocalVelocity(fwd*ply:GetVelocity():Length())
+
 		else
 			--TODO: Go straight to 3rd person view bypassing interior if it doesnt exist for some reason
 		end
@@ -38,6 +43,8 @@ if SERVER then
 			local fwd=(ply:GetVelocity():Angle()+(self:GetAngles()-self.interior:GetAngles())+Angle(0,90,0)):Forward()
 			ply:SetEyeAngles(Angle(ang.p,ang.y,0))
 			ply:SetLocalVelocity(fwd*ply:GetVelocity():Length())
+			ply:ForcePlayerDrop()
+
 		end
 	end
 end
