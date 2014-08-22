@@ -14,4 +14,6 @@ ENT:AddHook("Draw", "lights", function(self)
 		dlight.Size = size
 	end
 	dlight.DieTime = CurTime() + 1
+	
 end)
+

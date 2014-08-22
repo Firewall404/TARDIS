@@ -1,6 +1,4 @@
-include('shared.lua')
 
-	
 surface.CreateFont( "Console", 
                     {
                     font    = "Tahoma",
@@ -19,19 +17,9 @@ surface.CreateFont( "Exterior",
                     shadow = false
             })
 
-			
-function ENT:Draw()
-	if self:CallHook("ShouldDraw") then
-		self:DrawModel()
-		if WireLib then
-			Wire_Render(self)
-		end
-		self:CallHook("Draw")
-	end	
-	
-
-                                        
+function ENT:Draw()                                             
 	cam.Start3D2D( self:LocalToWorld(Vector(7,-90,140)), self:LocalToWorldAngles(Angle(0,60,90)), 0.1 )
+	
 		surface.SetDrawColor( 0, 0, 0, 255) 
 		surface.DrawRect(891, -244, -4 - 322, 168 )
 		surface.SetTextColor( 0, 255, 0, 255 )
@@ -44,17 +32,6 @@ function ENT:Draw()
 		surface.DrawText("Exterior")
 		surface.SetDrawColor(0,255,0,255)
 		surface.DrawLine( 655, -150, 585, -150 )
-		surface.DrawLine( 585, -115, 585, -150 ) 
+		surface.DrawLine( 585, -115, 585, -150 )	
 	cam.End3D2D()
 end
-
-
-
-function ENT:Initialize()
-	self:CallHook("Initialize")
-end
-
-function ENT:Think()	
-	self:CallHook("Think")
-end
-

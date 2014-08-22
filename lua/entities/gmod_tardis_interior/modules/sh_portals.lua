@@ -27,7 +27,8 @@ if SERVER then
 		self.portals[2]:SetParent(self)
 		self.portals[2]:Spawn()
 		self.portals[2]:Activate()
-
+	
+	
 	end)
 else
 	ENT:AddHook("ShouldDraw", "portals", function(self)

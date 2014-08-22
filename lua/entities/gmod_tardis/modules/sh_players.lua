@@ -21,14 +21,14 @@ if SERVER then
 			end
 			ply:ForcePlayerDrop()
 			ply:SetLocalVelocity(fwd*ply:GetVelocity():Length())
-
+			self:CallHook("PlayerEnter")
 		else
 			--TODO: Go straight to 3rd person view bypassing interior if it doesnt exist for some reason
 		end
 	end
-
+	
 	function ENT:PlayerExit(ply,forced)
-		if ply:InVehicle() then ply:ExitVehicle() end
+		if ply:IsPlayer() and ply:InVehicle() then ply:ExitVehicle() end
 		for k,v in pairs(self.occupants) do
 			if ply==v then
 				self.occupants[k]=nil

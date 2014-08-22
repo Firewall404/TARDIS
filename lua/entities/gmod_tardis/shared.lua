@@ -59,20 +59,6 @@ end
 
 
 function ENT:Use(a,c)
-
 	self:CallHook("Use",a,c)
-
-	
-		if self:GetNetVar("doorstate",true) then
-			
-			self:EmitSound("newtardis/door_open.mp3")
-			self:StopSound( "door_close" )
-
-		else
-		    self:StopSound( "door_open" )
-			self:EmitSound("newtardis/door_close.mp3")
-		end
-
-
 end
 

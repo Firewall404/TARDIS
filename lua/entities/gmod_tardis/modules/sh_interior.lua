@@ -42,8 +42,6 @@ if SERVER then
 	ENT:AddHook("Use", "interior", function(self,a,c)
 		if a:KeyDown(IN_WALK) then
 			self:ToggleDoor()
-		else
-			self:PlayerEnter(a)
 		end
 	end)
 	

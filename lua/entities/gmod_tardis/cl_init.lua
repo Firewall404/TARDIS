@@ -7,6 +7,7 @@ function ENT:Draw()
 	end
 end
 
+
 function ENT:Initialize()
 	self:CallHook("Initialize")
 end
@@ -14,3 +15,5 @@ end
 function ENT:Think()
 	self:CallHook("Think")
 end
+
+

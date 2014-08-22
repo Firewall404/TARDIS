@@ -23,7 +23,7 @@ function ENT:Initialize()
 	self:SetSolid( SOLID_VPHYSICS )
 	self:SetRenderMode( RENDERMODE_TRANSALPHA )
 	self:SetUseType( SIMPLE_USE )
-	
+
 	self.phys = self:GetPhysicsObject()
 	if (self.phys:IsValid()) then
 		self.phys:Wake()
